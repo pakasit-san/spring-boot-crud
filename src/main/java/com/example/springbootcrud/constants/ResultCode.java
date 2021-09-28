@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * The common of status code and message
  *
- * @Getter use for generate getter and setter method instead of Boilerplate code
+ * @Getter use for generate getter method instead of Boilerplate code
  */
 @Getter
 public enum ResultCode {

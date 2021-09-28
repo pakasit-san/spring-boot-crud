@@ -4,6 +4,11 @@ import com.example.springbootcrud.constants.ResultCode;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+/**
+ * The common exception use for service throws a standard exception with error code and message
+ *
+ * @Getter use for generate getter method instead of Boilerplate code
+ */
 @Getter
 public class CommonException extends Exception {
 

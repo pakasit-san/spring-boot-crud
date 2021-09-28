@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1")
 public class UserController {
 
+    /**
+     * Dependencies injection
+     */
     @Autowired
     UserService userService;
 

@@ -4,25 +4,37 @@ import com.example.springbootcrud.constants.ResultCode;
 import com.example.springbootcrud.models.BasicResponse;
 import com.example.springbootcrud.models.StatusResponse;
 import com.example.springbootcrud.models.user.UserRequest;
+import com.example.springbootcrud.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
 
+    @Autowired
+    UserService userService;
+
     @PostMapping(value = "/users", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     private HttpEntity<?> createUser(@RequestBody UserRequest userRequest) {
-        return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userRequest).build(HttpStatus.CREATED);
+        return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userService.createUser(userRequest)).build(HttpStatus.CREATED);
     }
 
+    @GetMapping(value = "/users")
+    private HttpEntity<?> getAllUser() {
+        return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userService.getAllUser()).build(HttpStatus.OK);
+    }
 
-    //Get user
-    //Get all user
-    //Get user pagination
+    @GetMapping(value = "/users/{userId}")
+    private HttpEntity<?> getUserById(@PathVariable(value = "userId") long userId) throws Exception {
+        return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userService.getUserById(userId)).build(HttpStatus.OK);
+    }
+
+    //Update user
+    //Delete user
 }

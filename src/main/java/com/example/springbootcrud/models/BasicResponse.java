@@ -18,7 +18,7 @@ public class BasicResponse<T> {
         this.data = data;
     }
 
-    public HttpEntity<BasicResponse> build(HttpStatus httpStatus) {
+    public HttpEntity<?> build(HttpStatus httpStatus) {
         return new ResponseEntity<>(new BasicResponse<>(this.status, this.data), httpStatus);
     }
 }

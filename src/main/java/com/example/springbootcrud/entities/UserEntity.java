@@ -1,16 +1,17 @@
 package com.example.springbootcrud.entities;
 
+import com.example.springbootcrud.models.user.UserRequest;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.catalina.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity(name = "User")
+@Entity
+@Table(name = "users")
 public class UserEntity {
 
     @Id
@@ -18,6 +19,19 @@ public class UserEntity {
     private long id;
     private String firstName;
     private String lastName;
-    private String email;
     private String mobileNumber;
+    private String email;
+
+    @JsonIgnore
+    private String password;
+
+    public static UserEntity mappingUserRequest(UserRequest userRequest) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setFirstName(userRequest.getFirstName());
+        userEntity.setLastName(userRequest.getLastName());
+        userEntity.setMobileNumber(userRequest.getMobileNumber());
+        userEntity.setEmail(userRequest.getEmail());
+        userEntity.setPassword(userRequest.getPassword());
+        return userEntity;
+    }
 }

@@ -5,10 +5,11 @@ import lombok.Getter;
 @Getter
 public enum ResultCode {
 
-    SUCCESS("SUCCESS", "success");
+    SUCCESS("SUCCESS", "success"),
+    ERROR_USER_NOT_FOUND("ERROR.USER_NOT_FOUND", "user not found");
 
-    private String code;
-    private String message;
+    private final String code;
+    private final String message;
 
     ResultCode(String code, String message) {
         this.code = code;

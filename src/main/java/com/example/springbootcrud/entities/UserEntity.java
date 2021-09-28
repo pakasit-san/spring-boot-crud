@@ -4,7 +4,6 @@ import com.example.springbootcrud.models.user.UserRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.catalina.User;
 
 import javax.persistence.*;
 

@@ -15,4 +15,9 @@ public class StatusResponse {
         this.code = resultCode.getCode();
         this.message = resultCode.getMessage();
     }
+
+    public StatusResponse(String code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 }

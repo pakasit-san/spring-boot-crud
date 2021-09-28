@@ -1,6 +1,7 @@
 package com.example.springbootcrud.controllers;
 
 import com.example.springbootcrud.constants.ResultCode;
+import com.example.springbootcrud.exceptions.CommonException;
 import com.example.springbootcrud.models.BasicResponse;
 import com.example.springbootcrud.models.StatusResponse;
 import com.example.springbootcrud.models.user.UserRequest;
@@ -10,8 +11,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import javax.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -31,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/users/{userId}")
-    private HttpEntity<?> getUserById(@PathVariable(value = "userId") long userId) throws Exception {
+    private HttpEntity<?> getUserById(@PathVariable(value = "userId") long userId) throws CommonException {
         return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userService.getUserById(userId)).build(HttpStatus.OK);
     }
 

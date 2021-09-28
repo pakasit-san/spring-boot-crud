@@ -12,29 +12,59 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service use for CRUD user information
+ */
 @Service
 public class UserService {
 
+    /**
+     * Dependencies injection
+     */
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * This method use for create user via repository
+     *
+     * @param userRequest the request object included user information fields that use for create user
+     * @return the id of user that created by api
+     */
     public Long createUser(UserRequest userRequest) {
         UserEntity userEntity = UserEntity.mappingUserRequest(userRequest);
         userRepository.save(userEntity);
         return userEntity.getId();
     }
 
+    /**
+     * This method use for get all user via repository
+     *
+     * @return the user entries that included user information
+     */
     public List<UserEntity> getAllUser() {
         return userRepository.findAll();
     }
 
+    /**
+     * This method use for get user by id via repository
+     *
+     * @param userId the id of user that use for find user has existed in database or not
+     * @return the user information
+     * @throws CommonException should be thrown when user has not exist
+     */
     public UserEntity getUserById(long userId) throws CommonException {
         Optional<UserEntity> userEntityOptional = userRepository.findById(userId);
         return userEntityOptional.orElseThrow(() -> new CommonException(HttpStatus.NOT_FOUND, ResultCode.USER_NOT_FOUND));
     }
 
+    /**
+     * This method use for update user by id via repository
+     *
+     * @param userId the id of user that use for find user has existed in database or not
+     * @param userRequest the request object included user information fields that use for update user
+     * @throws CommonException should be thrown when user has not exist
+     */
     public UserEntity updateUser(long userId, UserRequest userRequest) throws CommonException {
-        //Check user exist in database
         Optional<UserEntity> userEntityOptional = userRepository.findById(userId);
         UserEntity userEntity = userEntityOptional.orElseThrow(() -> new CommonException(HttpStatus.NOT_FOUND, ResultCode.USER_NOT_FOUND));
         userEntity.setFirstName(userRequest.getFirstName());
@@ -45,6 +75,12 @@ public class UserService {
         return userEntity;
     }
 
+    /**
+     * This method use for delete user by id via repository
+     *
+     * @param userId the id of user that use for delete user
+     * @return the id of user has been deleted
+     */
     public Long deleteUser(long userId) {
         userRepository.deleteById(userId);
         return userId;

@@ -29,7 +29,24 @@ public class UserService {
     }
 
     public UserEntity getUserById(long userId) throws CommonException {
-        Optional<UserEntity> userEntity = userRepository.findById(userId);
-        return userEntity.orElseThrow(() -> new CommonException(HttpStatus.NOT_FOUND, ResultCode.ERROR_USER_NOT_FOUND));
+        Optional<UserEntity> userEntityOptional = userRepository.findById(userId);
+        return userEntityOptional.orElseThrow(() -> new CommonException(HttpStatus.NOT_FOUND, ResultCode.USER_NOT_FOUND));
+    }
+
+    public UserEntity updateUser(long userId, UserRequest userRequest) throws CommonException {
+        //Check user exist in database
+        Optional<UserEntity> userEntityOptional = userRepository.findById(userId);
+        UserEntity userEntity = userEntityOptional.orElseThrow(() -> new CommonException(HttpStatus.NOT_FOUND, ResultCode.USER_NOT_FOUND));
+        userEntity.setFirstName(userRequest.getFirstName());
+        userEntity.setLastName(userRequest.getLastName());
+        userEntity.setMobileNumber(userRequest.getMobileNumber());
+        userEntity.setEmail(userRequest.getEmail());
+        userRepository.save(userEntity);
+        return userEntity;
+    }
+
+    public Long deleteUser(long userId) {
+        userRepository.deleteById(userId);
+        return userId;
     }
 }

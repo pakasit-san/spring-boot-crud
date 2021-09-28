@@ -34,6 +34,13 @@ public class UserController {
         return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userService.getUserById(userId)).build(HttpStatus.OK);
     }
 
-    //Update user
-    //Delete user
+    @PutMapping(value = "/users/{userId}")
+    private HttpEntity<?> updateUser(@PathVariable(value = "userId") long userId, @RequestBody UserRequest userRequest) throws CommonException {
+        return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userService.updateUser(userId, userRequest)).build(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/users/{userId}")
+    private HttpEntity<?> deleteUser(@PathVariable(value = "userId") long userId) {
+        return new BasicResponse<>(new StatusResponse(ResultCode.SUCCESS), userService.deleteUser(userId)).build(HttpStatus.OK);
+    }
 }

@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum ResultCode {
 
     SUCCESS("SUCCESS", "success"),
-    ERROR_USER_NOT_FOUND("ERROR.USER_NOT_FOUND", "user not found");
+    USER_NOT_FOUND("ERROR.USER_NOT_FOUND", "user not found"),
+    INTERNAL_SERVER_ERROR("ERROR.INTERNAL_SERVER_ERROR", "internal server error");
 
     private final String code;
     private final String message;

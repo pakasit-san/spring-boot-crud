@@ -12,6 +12,8 @@ import lombok.Setter;
  *      code: "SUCCESS",
  *      message: "success"
  *  }
+ *
+ * @Getter,@Setter use for generate getter and setter method instead of Boilerplate code
  */
 @Getter
 @Setter

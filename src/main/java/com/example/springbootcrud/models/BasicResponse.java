@@ -7,6 +7,21 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+/**
+ * The basic response model use for return status and data
+ *
+ * Example,
+ *  status: {
+ *      code: "SUCCESS",
+ *      message: "success"
+ *  },
+ *  data: {
+ *      "firstName": "bla bla"
+ *  }
+ *
+ * @Getter,@Setter use for generate getter and setter method instead of Boilerplate code
+ * @JsonInclude use for exclude any field that have null value when serialise to json response
+ */
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -4,6 +4,15 @@ import com.example.springbootcrud.constants.ResultCode;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The status model use for return status code and message
+ *
+ * Example,
+ *  status: {
+ *      code: "SUCCESS",
+ *      message: "success"
+ *  }
+ */
 @Getter
 @Setter
 public class StatusResponse {

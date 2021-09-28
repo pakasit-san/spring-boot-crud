@@ -9,6 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * @ControllerAdvice will apply to all classes that use the @Controller annotation (which extends to class using @RestController)
+ * It will be caught the specific exception throws and return a BasicResponse
+ */
 @ControllerAdvice
 public class GlobalExceptionAdvice {
 

@@ -28,7 +28,7 @@ public class UserService {
      * This method use for create user via repository
      *
      * @param userRequest the request object included user information fields that use for create user
-     * @return the id of user that created by api
+     * @return the id of user has been created
      */
     public Long createUser(UserRequest userRequest) {
         UserEntity userEntity = UserEntity.mappingUserRequest(userRequest);
@@ -62,6 +62,7 @@ public class UserService {
      *
      * @param userId the id of user that use for find user has existed in database or not
      * @param userRequest the request object included user information fields that use for update user
+     * @return the user information
      * @throws CommonException should be thrown when user has not exist
      */
     public UserEntity updateUser(long userId, UserRequest userRequest) throws CommonException {

@@ -6,6 +6,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * An entity is a lightweight persistence domain object.
+ * Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table.
+ *
+ * @Getter,@Setter use for generate getter and setter method instead of Boilerplate code
+ */
 @Getter
 @Setter
 @Entity

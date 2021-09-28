@@ -2,6 +2,11 @@ package com.example.springbootcrud.constants;
 
 import lombok.Getter;
 
+/**
+ * The common of status code and message
+ *
+ * @Getter use for generate getter and setter method instead of Boilerplate code
+ */
 @Getter
 public enum ResultCode {
 

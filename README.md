@@ -1,22 +1,22 @@
-#spring-boot-crud-jpa
+# spring-boot-crud-jpa
 
-##Overview
+## Overview
 This is a simple application to show how to use Spring Data JPA with Spring Boot, Demonstrated with the RESTFul api for CRUD and connect MySQL database via docker container.
 
-##Software and Tools
+## Software and Tools
 - Java
 - MySQL
 - Docker
 - IDE (IntelliJ IDEA)
 
-##Quick start
+## Quick start
 * Import the project into IDE (IntelliJ IDEA) as Maven Project
 * Add dependencies and configurations
 * Start MySQL as docker container
 * Find `SpringBootCrud.java` from sidebar, right-click on the file, select 'Run'
 * CRUD endpoints. Please check file `UserController.java`
 
-##Dependencies
+## Dependencies
 Please add dependencies to `pom.xml` file
 ```
 <!-- Dependency for create RESTFul api -->
@@ -46,7 +46,7 @@ Please add dependencies to `pom.xml` file
 </dependency>
 ```
 
-##Configurations
+## Configurations
 Please add configuration to `application.properties` file
 ```
 #Server port
@@ -62,7 +62,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=false
 ```
 
-##MySQL
+## MySQL
 Running MySQL as docker container start up following command:
 
 Pull docker image
@@ -83,7 +83,7 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=exampl
 * `-p 3306:3306` expose port
 * `mysql:5.6` image name and version
 
-##CRUD
+## CRUD
 endpoint `http://localhost:9000/api/v1`
 * `POST: /users` create user
 * `GET: /users` get all user

@@ -91,6 +91,31 @@ endpoint `http://localhost:9000/api/v1`
 * `PUT: /users/{userId}` update user by userId
 * `DELETE: /users/{userId}` delete user by userId
 
+## Example
+Request
+```
+curl --location --request GET 'localhost:9000/api/v1/users'
+```
+
+Response
+```
+{
+    "status": {
+        "code": "SUCCESS",
+        "message": "success"
+    },
+    "data": [
+        {
+            "id": 14,
+            "firstName": "Johnny",
+            "lastName": "Depp",
+            "mobileNumber": "0800000000",
+            "email": "johnny.d@mycompany.com"
+        }
+    ]
+}
+```
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 

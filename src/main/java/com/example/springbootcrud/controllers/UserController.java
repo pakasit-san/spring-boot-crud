@@ -73,7 +73,7 @@ public class UserController {
     }
 
     /**
-     * This method use for delete user by id
+     * Api use for delete user by id
      *
      * @param userId the id of user that use for delete user
      * @return BasicResponse standard of our api include the id of user has been deleted

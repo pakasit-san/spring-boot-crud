@@ -60,7 +60,7 @@ public class UserService {
     /**
      * This method use for update user by id via repository
      *
-     * @param userId the id of user that use for find user has existed in database or not
+     * @param userId the id of user that used to find user has existed in database or not
      * @param userRequest the request object included user information fields that use for update user
      * @return the user information
      * @throws CommonException should be thrown when user has not exist
